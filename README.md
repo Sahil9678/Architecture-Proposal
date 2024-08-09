@@ -144,11 +144,6 @@ const Button = ({ children, onClick }) => {
   return <StyledButton onClick={onClick}>{children}</StyledButton>;
 };
 
-Button.propTypes = {
-  children: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired,
-};
-
 export default Button;
 ```
 
