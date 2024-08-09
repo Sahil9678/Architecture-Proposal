@@ -1,5 +1,4 @@
-**
-Architecture Proposal for a Common Repository**
+#Architecture Proposal for a Common Repository
 
 
 1. Architecture Overview
