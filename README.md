@@ -15,7 +15,7 @@ The repository will be structured into three main folders:
 
 Each of these folders will follow a modular structure, promoting reusability and ease of maintenance. The repository will be organized to support versioning, thorough documentation, and comprehensive testing.
 
-**Directory Structure:**
+Directory Structure:
 
 ```
 common-repo/
@@ -61,9 +61,9 @@ common-repo/
 
 ```
 
-#### 2. UI Components
+2. UI Components
 
-**Organization of Shared UI Components:**
+Organization of Shared UI Components:
 
 Each UI component will have its own folder within the `components` directory. This folder will contain:
 - The component implementation (`.js` or `.jsx` file).
@@ -71,124 +71,56 @@ Each UI component will have its own folder within the `components` directory. Th
 - Unit tests (`.test.js` file).
 - An `index.js` file for easy imports.
 
-**Customization and Maintainability Strategies:**
+Customization and Maintainability Strategies:
 
-- **Props and Theming**: Components will be designed to accept props for customization. Theming support will be provided using libraries like `styled-components` or `emotion`.
-- **Documentation**: Each component will have associated documentation explaining its usage, props, and examples.
-- **Versioning**: Components will follow semantic versioning to track changes and updates.
+- Props and Theming: Components will be designed to accept props for customization. Theming support will be provided using libraries like `styled-components` or `emotion`.
+- Documentation: Each component will have associated documentation explaining its usage, props, and examples.
+- Versioning: Components will follow semantic versioning to track changes and updates.
 
-#### 3. Utilities
+3. Utilities
 
-**Types of Utility Functions:**
+Types of Utility Functions:
 
-- **Data Formatting**: Functions for formatting dates, numbers, etc.
-- **API Handling**: Functions for making API calls, handling responses, and managing errors.
-- **Error Handling**: Functions for standardizing error messages and logging.
+- Data Formatting: Functions for formatting dates, numbers, etc.
+- API Handling: Functions for making API calls, handling responses, and managing errors.
+- Error Handling: Functions for standardizing error messages and logging.
 
-**Structure for Utilities:**
+Structure for Utilities:
 
 Utilities will be grouped by their functionality in subdirectories within the `utils` folder. Each utility will have its own file, and an `index.js` file in each subdirectory will re-export the functions for easy import.
 
-#### 4. Business Logic
+4. Business Logic
 
-**Managing Shared Business Logic:**
+Managing Shared Business Logic:
 
-- **Data Processing**: Common data processing functions will be placed in the `dataProcessing` subdirectory.
-- **State Management**: Shared state management logic, such as Redux store configurations, will be placed in the `stateManagement` subdirectory.
+- Data Processing: Common data processing functions will be placed in the `dataProcessing` subdirectory.
+- State Management: Shared state management logic, such as Redux store configurations, will be placed in the `stateManagement` subdirectory.
 
-**Modularity and Adaptability:**
+Modularity and Adaptability:
 
-- **Modular Structure**: Each piece of business logic will be in its own file and subdirectory, making it easy to import only the necessary parts.
-- **Configuration**: Use of environment variables and configuration files to adapt business logic for different projects.
+- Modular Structure: Each piece of business logic will be in its own file and subdirectory, making it easy to import only the necessary parts.
+- Configuration: Use of environment variables and configuration files to adapt business logic for different projects.
 
-#### 5. Best Practices
+5. Best Practices
 
-**Versioning, Documentation, and Testing:**
+Versioning, Documentation, and Testing:
 
-- **Versioning**: Use semantic versioning. Each module will have a changelog to track changes.
-- **Documentation**: Use tools like Storybook for UI components, and JSDoc for documenting functions and modules.
-- **Testing**: Write unit tests using Jest and React Testing Library. Ensure all functions and components have comprehensive test coverage.
+- Versioning: Use semantic versioning. Each module will have a changelog to track changes.
+- Documentation: Use tools like Storybook for UI components, and JSDoc for documenting functions and modules.
+- Testing: Write unit tests using Jest and React Testing Library. Ensure all functions and components have comprehensive test coverage.
 
-**Recommended Tools and Libraries:**
+Recommended Tools and Libraries:
 
-- **Bundler**: Webpack or Rollup for building the library.
-- **Testing**: Jest, React Testing Library.
-- **Linting**: ESLint and Prettier for code quality.
-- **Documentation**: Storybook, JSDoc.
+- Bundler: Webpack or Rollup for building the library.
+- Testing: Jest, React Testing Library.
+- Linting: ESLint and Prettier for code quality.
+- Documentation: Storybook, JSDoc.
 
-### Example Implementations
 
-#### UI Component: Button
 
-**src/components/Button/Button.js**:
+Business Logic: Data Processing
 
-```javascript
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-
-const StyledButton = styled.button`
-  padding: 10px 20px;
-  background-color: ${({ theme }) => theme.primary};
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  
-  &:hover {
-    background-color: ${({ theme }) => theme.primaryHover};
-  }
-`;
-
-const Button = ({ children, onClick }) => {
-  return <StyledButton onClick={onClick}>{children}</StyledButton>;
-};
-
-Button.propTypes = {
-  children: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired,
-};
-
-export default Button;
-```
-
-**src/components/Button/index.js**:
-
-```javascript
-import Button from './Button';
-
-export default Button;
-```
-
-#### Utility Function: API Client
-
-**src/utils/api/apiClient.js**:
-
-```javascript
-import axios from 'axios';
-
-const apiClient = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
-
-export const get = (url, config = {}) => apiClient.get(url, config);
-export const post = (url, data, config = {}) => apiClient.post(url, data, config);
-
-export default apiClient;
-```
-
-**src/utils/api/index.js**:
-
-```javascript
-export * from './apiClient';
-```
-
-#### Business Logic: Data Processing
-
-**src/business/dataProcessing/processData.js**:
+src/business/dataProcessing/processData.js:
 
 ```javascript
 export const processData = (data) => {
@@ -200,31 +132,26 @@ export const processData = (data) => {
 };
 ```
 
-**src/business/dataProcessing/index.js**:
-
-```javascript
-export * from './processData';
-```
+src/business/dataProcessing/index.js:
 
 ### Best Practices Guide
 
-**Versioning**:
-- Use semantic versioning (`major.minor.patch`).
+Versioning:
 - Maintain a changelog for each release.
 
-**Documentation**:
+Documentation:
 - Use Storybook for UI component documentation.
 - Use JSDoc for documenting functions and modules.
 - Ensure the README file is up to date with setup, usage, and contribution guidelines.
 
-**Testing**:
+Testing:
 - Write unit tests for all components and functions.
 - Use Jest for running tests.
 - Use React Testing Library for testing React components.
 
-**Tools and Libraries**:
-- **Bundler**: Webpack or Rollup.
-- **Testing**: Jest, React Testing Library.
-- **Linting**: ESLint, Prettier.
-- **Documentation**: Storybook, JSDoc.
+Tools and Libraries:
+- Bundler: Webpack or Rollup.
+- Testing: Jest, React Testing Library.
+- Linting: ESLint, Prettier.
+- Documentation: Storybook, JSDoc.
 
