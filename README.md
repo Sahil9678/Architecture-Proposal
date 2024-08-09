@@ -1,7 +1,7 @@
 # Architecture Proposal for a Common Repository
 
 
-1. Architecture Overview
+## 1. Architecture Overview
 
 High-Level Architecture:
 
@@ -58,7 +58,7 @@ common-repo/
 
 ```
 
-2. UI Components
+## 2. UI Components
 
 Organization of Shared UI Components:
 
@@ -74,7 +74,7 @@ Customization and Maintainability Strategies:
 - Documentation: Each component will have associated documentation explaining its usage, props, and examples.
 - Versioning: Components will follow semantic versioning to track changes and updates.
 
-3. Utilities
+## 3. Utilities
 
 Types of Utility Functions:
 
@@ -86,7 +86,7 @@ Structure for Utilities:
 
 Utilities will be grouped by their functionality in subdirectories within the `utils` folder. Each utility will have its own file, and an `index.js` file in each subdirectory will re-export the functions for easy import.
 
-4. Business Logic
+## 4. Business Logic
 
 Managing Shared Business Logic:
 
@@ -98,7 +98,7 @@ Modularity and Adaptability:
 - Modular Structure: Each piece of business logic will be in its own file and subdirectory, making it easy to import only the necessary parts.
 - Configuration: Use of environment variables and configuration files to adapt business logic for different projects.
 
-5. Best Practices
+## 5. Best Practices
 
 Versioning, Documentation, and Testing:
 
