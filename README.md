@@ -106,7 +106,7 @@ Modularity and Adaptability:
 Versioning, Documentation, and Testing:
 
 - Versioning: Use semantic versioning. Each module will have a changelog to track changes.
-- Documentation: Use tools like Storybook for UI components, and JSDoc for documenting functions and modules.
+- Documentation: JSDoc for documenting functions and modules.
 - Testing: Write unit tests using Jest and React Testing Library. Ensure all functions and components have comprehensive test coverage.
 
 Recommended Tools and Libraries:
@@ -114,7 +114,7 @@ Recommended Tools and Libraries:
 - Bundler: Webpack or Rollup for building the library.
 - Testing: Jest, React Testing Library.
 - Linting: ESLint and Prettier for code quality.
-- Documentation: Storybook, JSDoc.
+- Documentation: JSDoc.
 
  Example Implementations
 
@@ -187,7 +187,6 @@ src/business/dataProcessing/processData.js:
 
 ```javascript
 export const processData = (data) => {
-  // Process the data and return the result
   return data.map(item => ({
     ...item,
     processed: true,
@@ -203,7 +202,6 @@ Versioning:
 - Maintain a changelog for each release.
 
 Documentation:
-- Use Storybook for UI component documentation.
 - Use JSDoc for documenting functions and modules.
 - Ensure the README file is up to date with setup, usage, and contribution guidelines.
 
@@ -216,5 +214,5 @@ Tools and Libraries:
 - Bundler: Webpack or Rollup.
 - Testing: Jest, React Testing Library.
 - Linting: ESLint, Prettier.
-- Documentation: Storybook, JSDoc.
+- Documentation: JSDoc.
 
