@@ -192,6 +192,11 @@ export const processData = (data) => {
 
 src/business/dataProcessing/index.js:
 
+```javascript
+export * from './processData';
+```
+
+
  Best Practices Guide
 
 Versioning:
