@@ -179,9 +179,7 @@ src/utils/api/index.js:
 
 ```javascript
 export * from './apiClient';
-``
-
-
+```
 
 Business Logic: Data Processing
 
