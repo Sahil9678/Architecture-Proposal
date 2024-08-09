@@ -1,4 +1,4 @@
-# Architecture-Proposal
+ Architecture-Proposal
 
 Architecture Proposal for a Common Repository
 
@@ -116,6 +116,76 @@ Recommended Tools and Libraries:
 - Linting: ESLint and Prettier for code quality.
 - Documentation: Storybook, JSDoc.
 
+ Example Implementations
+
+ UI Component: Button
+
+src/components/Button/Button.js:
+
+```javascript
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const StyledButton = styled.button`
+  padding: 10px 20px;
+  background-color: ${({ theme }) => theme.primary};
+  color: fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: ${({ theme }) => theme.primaryHover};
+  }
+`;
+
+const Button = ({ children, onClick }) => {
+  return <StyledButton onClick={onClick}>{children}</StyledButton>;
+};
+
+Button.propTypes = {
+  children: PropTypes.node.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
+
+export default Button;
+```
+
+src/components/Button/index.js:
+
+```javascript
+import Button from './Button';
+
+export default Button;
+```
+
+ Utility Function: API Client
+
+src/utils/api/apiClient.js:
+
+```javascript
+import axios from 'axios';
+
+const apiClient = axios.create({
+  baseURL: process.env.REACT_APP_API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+export const get = (url, config = {}) => apiClient.get(url, config);
+export const post = (url, data, config = {}) => apiClient.post(url, data, config);
+
+export default apiClient;
+```
+
+src/utils/api/index.js:
+
+```javascript
+export * from './apiClient';
+``
+
 
 
 Business Logic: Data Processing
@@ -134,7 +204,7 @@ export const processData = (data) => {
 
 src/business/dataProcessing/index.js:
 
-### Best Practices Guide
+ Best Practices Guide
 
 Versioning:
 - Maintain a changelog for each release.
